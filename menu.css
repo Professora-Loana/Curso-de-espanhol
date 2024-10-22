@@ -1,0 +1,251 @@
+@charset "UTF-8";
+
+/* Importação das fontes utilizadas */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+body {
+    font-family: "Nunito", sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#degrade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #2ac18f, #67c89e, #f68e4d, #f77332);
+    background-size: 300% 300%;
+    z-index: 1;
+    animation: fundo 20s ease infinite;
+}
+
+@keyframes fundo {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+main {
+    height: 95%;
+    width: 95%;
+    background-color: #ffffffcf;
+    position: relative;
+    z-index: 2;
+    border-radius: 80px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#container {
+    margin-top: 5%;
+    max-width: 90%;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Adicionando os botões de navegação do carrossel */
+.scroll-button {
+    background-color: #f68e4d;
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+}
+
+.scroll-button:hover {
+    background-color: #ff7a32;
+}
+
+/* Botão esquerdo à esquerda */
+.scroll-button:first-of-type {
+    left: 10px;
+}
+
+/* Botão direito à direita */
+.scroll-button:last-of-type {
+    right: 10px;
+}
+
+#livros {
+    display: flex; /* Exibe os livros em linha */
+    overflow-x: auto; /* Permite rolagem horizontal */
+    width: 100%; /* Largura total do contêiner */
+    height: auto; /* Ajuste a altura conforme necessário */
+    padding: 10px 0; /* Opcional: adicione um pouco de espaçamento */
+}
+
+
+.livro {
+    flex: 0 0 30%; /* Define a largura de cada livro para 30% */
+    margin-right: 20px; /* Adiciona espaçamento entre os livros */
+    transition: transform 0.3s; /* Para animações suaves ao rolar */
+}
+
+/* Para o último livro, removemos a margem */
+#livros .livro:last-child {
+    margin-right: 0;
+}
+
+.nomelivro {
+    margin-top: 1px;
+    font-family: "Poppins";  
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+/* Float Shadow */
+.hvr-float-shadow {
+    display: inline-block;
+    vertical-align: middle;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+.hvr-float-shadow:before {
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    content: '';
+    top: 100%;
+    left: 5%;
+    height: 10px;
+    width: 90%;
+    opacity: 0;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+    transition-duration: 0.3s;
+    transition-property: transform, opacity;
+}
+
+.hvr-float-shadow:hover, 
+.hvr-float-shadow:focus, 
+.hvr-float-shadow:active {
+    transform: translateY(-3px);
+}
+
+.hvr-float-shadow:hover:before, 
+.hvr-float-shadow:focus:before, 
+.hvr-float-shadow:active:before {
+    opacity: 1;
+    transform: translateY(-15px);
+}
+
+/* Modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 999; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+    padding-top: 60px; 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+#linkList a {
+    color: forestgreen; /* Cor do texto dos links */
+    text-decoration: none; /* Remove sublinhado */
+    font-weight: bold; /* Pode adicionar negrito se desejar */
+}
+
+#linkList a:hover {
+    text-decoration: underline; /* Sublinha ao passar o mouse */
+}
+/* Para Firefox */
+#livros {
+    scrollbar-width: thin; /* Espessura da barra de rolagem */
+    scrollbar-color: forestgreen #f1f1f1; /* Cor do polegar e cor do fundo */
+}
+#dicas{
+    display: flex; /* Alinha a lupa e o texto horizontalmente */
+    align-items: center;
+}
+
+h1{
+    font-size: 2.5svw;
+    color: #f68e4d;
+    font-family: 'Poppins';
+    font-style: italic;
+    
+    
+}
+
+#ver-mais {
+    display: none; /* O botão começa escondido */
+    background-color: #f68e4d;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    height: 40%;
+    transform: translateX(90%);
+    
+
+}
+
+
+#lupa{
+    width: 50px; /* Largura da lupa */
+    height: 80px; /* Altura da lupa */
+    margin-right: 100px; /* Espaçamento à direita da lupa */
+    transform: translateY(-70%); /* Move a lupa para cima */
+}
+
+#texto-curiosidade{
+    font-size: 4dvh;
+}

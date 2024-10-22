@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <link rel="shortcut icon" href="Imagens/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <title>Exercícios de Espanhol</title>
+</head>
+<body>
+    <div id="degrade"></div>
+    <div id="container">
+        <div id="Imagem"><img src="Imagens/logo.png" alt="Logo"></div>
+        <h1>Why Not?</h1>
+        <p id="institute">INSTITUTE</p>
+        <p id="sub-titulo">Atividades complementares</p>
+        <form id="login-form" onsubmit="salvarNome(event);">
+            <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
+            <div class="container-botao">
+                <a onclick="salvarNome(event)" class="button" id="Acessar">Acessar</a>
+            </div>
+        </form>
+
+        <!-- Botões de redes sociais -->
+        <ul class="social-icons">
+            <li>
+                <a href="#">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fab fa-spotify"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Importando os scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+    <script>
+        // Inicializando Vanta.js
+        VANTA.BIRDS({
+            el: "#degrade",
+            mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  backgroundColor: 0x65ff00,
+  color1: 0xa96708,
+  color2: 0x7c4b0a,
+  colorMode: "variance",
+  birdSize: 0.90,
+  wingSpan: 40.00,
+  speedLimit: 6.00,
+  separation: 100.00,
+  alignment: 1.00,
+  cohesion: 1.00,
+  quantity: 4.00,
+  backgroundAlpha: 0.14
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
